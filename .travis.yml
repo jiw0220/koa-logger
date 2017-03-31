@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "7"
+after_script:
+  - npm install codecov
+  - NODE_ENV=test ./node_modules/.bin/nyc report --reporter=lcov > coverage.lcov
+  - ./node_modules/.bin/codecov
